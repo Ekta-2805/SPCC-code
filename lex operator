@@ -1,0 +1,16 @@
+#lex operator
+
+%{
+#include <stdio.h>
+%}
+
+%%
+[+-*/]          { printf("Operator: %s\n", yytext); }
+[ \t\n]         ; // Ignore whitespace and newline characters
+.               { printf("Invalid character: %s\n", yytext); }
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
